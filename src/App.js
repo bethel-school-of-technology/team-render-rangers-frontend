@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Amanda's test push to main branch!
+          Amanda's second test push to main branch!
         </a>
       </header>
     </div>
