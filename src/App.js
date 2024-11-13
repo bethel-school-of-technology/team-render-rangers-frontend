@@ -2,6 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  fetch('http://localhost:3000/api/items', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: 'New Item' })
+  })
+
   return (
     <div className="App">
       <header className="App-header">
