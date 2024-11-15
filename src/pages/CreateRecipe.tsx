@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar.tsx';
+
 
 const CreateRecipe = () => {
   const [formData, setFormData] = useState({ title: '', ingredients: '', directions: '', picture: '' });
@@ -14,6 +16,8 @@ const CreateRecipe = () => {
 };
 
   return (
+    <div>
+      <NavBar />
     <form onSubmit={handleSubmit}>
       <h1>Create Recipe</h1>
       <input
@@ -50,6 +54,7 @@ const CreateRecipe = () => {
       />
       <button type="submit">Post Recipe</button>
     </form>
+    </div>
   );
 };
 

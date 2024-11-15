@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar.tsx';
+// import './SignUp.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -13,35 +15,43 @@ const SignUp = () => {
 
 };
 
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Create Your Feastly Account</h1>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={formData.name}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={formData.password}
-        onChange={handleInputChange}
-        required
-      />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="signup-container">
+      <NavBar />
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h1>Create Your Feastly Account</h1>
+        <p>Already Registered? <a href="/signin">Log in here.</a></p>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+          className="signup-input"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+          className="signup-input"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleInputChange}
+          required
+          className="signup-input"
+        />
+        <button type="submit" className="signup-button">Sign Up</button>
+      </form>
+    </div>
   );
 };
 

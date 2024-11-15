@@ -1,15 +1,18 @@
 import React from 'react';
+import NavBar from '../components/NavBar.tsx';
 
 const Feed = () => {
-  return (
-    <div>
-      <h1>Public Feed</h1>
+    return (
       <div>
-        <h2>Recipe Name</h2>
-        <button>View Recipe</button>
+        <NavBar />
+        <h1>Public Feed</h1>
+        <div>
+          <h2>Recipe Name</h2>
+          <button>View Recipe</button>
+        </div>
       </div>
-    </div>
-  );
-};
-
-export default Feed;
+    );
+  };
+  
+  export default Feed;
+  

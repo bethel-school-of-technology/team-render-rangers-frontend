@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar.tsx';
+
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -13,16 +15,19 @@ const Search = () => {
 };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search"
-        value={query}
-        onChange={handleInputChange}
-        required
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <NavBar />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={query}
+          onChange={handleInputChange}
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   );
 };
 

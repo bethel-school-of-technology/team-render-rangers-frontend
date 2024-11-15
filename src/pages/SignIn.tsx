@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from '../components/NavBar.tsx';
+
 
 const SignIn = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -14,6 +16,8 @@ const SignIn = () => {
 };
 
   return (
+    <div>
+      <NavBar />
     <form onSubmit={handleSubmit}>
       <h1>Log In</h1>
       <input
@@ -34,6 +38,7 @@ const SignIn = () => {
       />
       <button type="submit">Log In</button>
     </form>
+    </div>
   );
 };
 
