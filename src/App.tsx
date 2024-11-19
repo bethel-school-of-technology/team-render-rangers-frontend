@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import SignUp from './pages/SignUp.tsx';
 import SignIn from './pages/SignIn.tsx';
 import Profile from './pages/Profile.tsx';
@@ -9,11 +8,15 @@ import CreateRecipe from './pages/CreateRecipe.tsx';
 import RecipeDetails from './pages/RecipeDetails.tsx';
 import Search from './pages/Search.tsx';
 import LogOut from './pages/LogOut.tsx';
+import RecipeContext from './context/RecipeContext.tsx';
+import recipes from './recipe-data.ts';
 
-function App() {
+
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
-    <Routes>
+    <RecipeContext.Provider value={{ recipes }}>
+      <BrowserRouter>
+        <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
@@ -22,10 +25,10 @@ function App() {
           <Route path="/recipe-details" element={<RecipeDetails />} />
           <Route path="/search" element={<Search />} />
           <Route path="/logout" element={<LogOut />} />
-    </Routes>
-    </BrowserRouter>
-
+        </Routes>
+      </BrowserRouter>
+    </RecipeContext.Provider>
   );
-}
+};
 
 export default App;
