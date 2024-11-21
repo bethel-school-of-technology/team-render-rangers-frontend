@@ -17,9 +17,10 @@ const SignIn = () => {
 
   return (
     <div className="signin-container">
-      <NavBar />
       <form onSubmit={handleSubmit} className="signin-form">
-        <h1>Log In</h1>
+      <img src="https://foodtech-files.s3-eu-west-2.amazonaws.com/1dfbb06d9f9eb0d475d8559b4176078863993447b0b1fa758cbb476b2867c73d" alt="Feastly Logo" className="feastly-logo" />
+      <p className="sign-up-here">Don't have an account? <a href="/signup">Sign up here.</a></p>
+
         <input
           type="email"
           name="email"
@@ -27,6 +28,7 @@ const SignIn = () => {
           value={formData.email}
           onChange={handleInputChange}
           required
+          className="signin-input"
         />
         <input
           type="password"
@@ -35,8 +37,11 @@ const SignIn = () => {
           value={formData.password}
           onChange={handleInputChange}
           required
+          className="signin-input"
         />
         <button type="submit" className="signin-button">Log In</button>
+        <p className="forgot-password"><a href="/signup">Forgot password?</a></p> 
+        {/* Should we keep the "Forgot password" section? */}
       </form>
     </div>
   );

@@ -18,10 +18,10 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <NavBar />
       <form onSubmit={handleSubmit} className="signup-form">
-        <h1>Create Your Feastly Account</h1>
-        <p>Already Registered? <a href="/signin">Log in here.</a></p>
+      <img src="https://foodtech-files.s3-eu-west-2.amazonaws.com/1dfbb06d9f9eb0d475d8559b4176078863993447b0b1fa758cbb476b2867c73d" alt="Feastly Logo" className="feastly-logo" />
+        <h1 className="create-account">Create Your Account</h1>
+        <p className="already-registered">Already Registered? <a href="/">Log in here.</a></p>
         <input
           type="text"
           name="name"
