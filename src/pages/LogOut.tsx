@@ -1,4 +1,5 @@
 import React from 'react';
+import './LogOut.css';
 import NavBar from '../components/NavBar.tsx';
 
 const LogOut = () => {
@@ -9,7 +10,7 @@ const LogOut = () => {
   return (
     <div>
       <NavBar />
-      <button onClick={handleLogout}>Log Out</button>
+      <button onClick={handleLogout} className="logout-button">Log Out</button>
     </div>
   );
 };
