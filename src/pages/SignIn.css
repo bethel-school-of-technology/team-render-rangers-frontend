@@ -14,8 +14,8 @@
     display: block;
     margin: 0 auto;
   }
-  
-  .sign-up-here{
+
+  .sign-up-here {
     padding-left: 2rem;
     color: black;
 }
@@ -38,7 +38,7 @@
 
   .signin-form p {
     font-size: 0.9rem;
-    color: #666;
+    color: #151515;
     margin-bottom: 2rem;
   }
   
