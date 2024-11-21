@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar.tsx';
+import './CreateRecipe.css';
 
 
 const CreateRecipe = () => {
@@ -16,45 +17,52 @@ const CreateRecipe = () => {
 };
 
   return (
-    <div>
+    <div className="create-recipe-container">
       <NavBar />
-    <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="create-recipe-form">
       <h1>Create Recipe</h1>
       <input
         type="text"
         name="title"
-        placeholder="Title"
         value={formData.title}
         onChange={handleInputChange}
         required
-      />
-       <input
+        className="create-recipe-input"
+        placeholder="Title"
+/>
+        <input
         type="text"
         name="ingredients"
-        placeholder="Ingredients"
         value={formData.ingredients}
         onChange={handleInputChange}
         required
-      />
-      <input
+        className="create-recipe-input"
+        placeholder="Ingredients"
+        />
+
+        <input
         type="text"
         name="directions"
-        placeholder="Directions"
         value={formData.directions}
         onChange={handleInputChange}
         required
-      />
-      <input
+        className="create-recipe-input"
+        placeholder="Directions"
+        />
+
+        <input
         type="text"
         name="picture"
-        placeholder="Picture URL"
         value={formData.picture}
         onChange={handleInputChange}
         required
-      />
-      <button type="submit">Post Recipe</button>
-    </form>
-    </div>
+        className="create-recipe-input"
+        placeholder="Picture URL"
+        />
+
+    <button type="submit" className="create-recipe-button">Post Recipe</button>
+        </form>
+        </div>
   );
 };
 

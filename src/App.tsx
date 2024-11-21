@@ -15,19 +15,20 @@ import recipes from './recipe-data.ts';
 const App: React.FC = () => {
   return (
     <RecipeContext.Provider value={{ recipes }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/create-recipe" element={<CreateRecipe />} />
-          <Route path="/recipe-details" element={<RecipeDetails />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/logout" element={<LogOut />} />
-        </Routes>
-      </BrowserRouter>
-    </RecipeContext.Provider>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/feed" element={<Feed />} />
+      <Route path="/create-recipe" element={<CreateRecipe />} />
+      <Route path="/recipe-details" element={<RecipeDetails />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/logout" element={<LogOut />} />
+    </Routes>
+  </BrowserRouter>
+  </RecipeContext.Provider>
+
   );
 };
 
