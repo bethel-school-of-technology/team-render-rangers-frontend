@@ -1,14 +1,6 @@
-export interface Recipe {
-    recipeId: number;
-    recipeName: string;
-    recipeCategory: string;
-    recipeIngredients: string[];
-    recipeInstructions: string[];
-    recipeImage: string;
-    id: string;
-  }
+import { Recipe } from "./models/recipe";
   
-  const recipes: Recipe[] = [
+  export const recipes: Recipe[] = [
     {
       recipeId: 1,
       recipeName: "Blueberry Pancakes",
@@ -31,7 +23,6 @@ export interface Recipe {
         "Serve with maple syrup."
       ],
       recipeImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx-DcxS4-vENpy8s70bg-b_JTQ6xPCrCn9ew&s",
-      id: "3caa"
     },
     // ...other recipes
   ];
