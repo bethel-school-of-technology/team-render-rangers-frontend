@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import Profile from './pages/Profile';
-import Feed from './pages/Feed';
-import CreateRecipe from './pages/CreateRecipe';
-import RecipeDetails from './pages/RecipeDetails';
-import Search from './pages/Search';
-import LogOut from './pages/LogOut';
-import { RecipeProvider } from './context/RecipeContext';
+import SignUp from './pages/SignUp.tsx';
+import SignIn from './pages/SignIn.tsx';
+import Profile from './pages/Profile.tsx';
+import Feed from './pages/Feed.tsx';
+import CreateRecipe from './pages/CreateRecipe.tsx';
+import RecipeDetails from './pages/RecipeDetails.tsx';
+import Search from './pages/Search.tsx';
+import LogOut from './pages/LogOut.tsx';
+import { RecipeProvider } from './context/RecipeContext.tsx';
 
 const App: React.FC = () => {
   return (

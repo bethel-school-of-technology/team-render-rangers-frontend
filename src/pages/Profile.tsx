@@ -25,7 +25,7 @@ const Profile = () => {
           <div className="saved-recipe-info">
             <h2 className="saved-recipe-title">Recipe Name</h2>
             <p className="saved-recipe-description">Description</p>
-            <button className="view-recipe-button">View Recipe</button>
+            <button className="view-recipe-button"><a href="/recipe/:id">View Recipe</a></button>
           </div>
         </div>
         <div className="saved-recipe-card">
@@ -36,7 +36,7 @@ const Profile = () => {
           <div className="saved-recipe-info">
             <h2 className="saved-recipe-title">Recipe Name</h2>
             <p className="saved-recipe-description">Description</p>
-            <button className="view-recipe-button">View Recipe</button>
+            <button className="view-recipe-button"><a href="/recipe/:id">View Recipe</a></button>
           </div>
         </div>
       </div>
