@@ -10,6 +10,7 @@
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #333;
+    margin-top: 50px;
   }
   
   .post-section {
@@ -45,7 +46,7 @@
   
   .recipe-card h3 {
     font-size: 1.25rem;
-    color: #FFD966;
+    color: black;
     margin-bottom: 0.5rem;
   }
   
