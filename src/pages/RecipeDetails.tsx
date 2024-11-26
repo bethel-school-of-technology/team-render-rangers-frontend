@@ -13,8 +13,7 @@ const RecipeDetails = () => {
         className="recipe-image"
       />
       <div className="ingredient-list">
-        <p className="ingredient-item" style={{ backgroundColor: '#FFD966' }}>Ingredients</p>
-        <p className="ingredient-item" style={{ backgroundColor: '#B4B4B4' }}>Directions</p>
+        <p className="ingredient-item">Ingredients/Directions</p>
       </div>
       <button className="save-recipe-button">Save Recipe</button>
     </div>
