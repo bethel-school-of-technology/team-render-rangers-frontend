@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} /> {/* Dynamic Route */}
           <Route path="/search" element={<Search />} />
-          <Route path="/logout" element={<LogOut />} />
+          {/* <Route path="/logout" element={<LogOut />} /> */}
         </Routes>
       </BrowserRouter>
     </RecipeProvider>

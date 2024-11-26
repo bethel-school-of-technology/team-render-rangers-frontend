@@ -1,22 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaUser, FaUtensils, FaPlus, FaSearch, FaSignOutAlt } from 'react-icons/fa';
+import './NavBar.css';
 
 const NavBar = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogoutClick = () => {
+    setShowPopup(true);
+  };
+
+  const handleYesClick = () => {
+    navigate('/');
+  };
+
+  const handleNoClick = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-      </div>
-      <ul className="navbar-links">
-        <li><Link to="/profile"><FaUser /> Profile</Link></li>
-        <li><Link to="/feed"><FaUtensils /> Feed</Link></li>
-        <li><Link to="/create-recipe"><FaPlus /> Create Recipe</Link></li>
-        <li><Link to="/search"><FaSearch /> Search</Link></li>
-        <li><Link to="/logout"><FaSignOutAlt /> Log Out</Link></li>
-      </ul>
-    </nav>
+    <>
+      <nav className="navbar">
+        <ul className="navbar-links">
+          <li><a href="/profile" className="navbar-link"><FaUser /> Profile</a></li>
+          <li><a href="/feed" className="navbar-link"><FaUtensils /> Feed</a></li>
+          <li><a href="/create-recipe" className="navbar-link"><FaPlus /> Create Recipe</a></li>
+          <li><a href="/search" className="navbar-link"><FaSearch /> Search</a></li>
+          <li><button className="logout-nav-button" onClick={handleLogoutClick}><FaSignOutAlt /> Log Out</button></li>
+        </ul>
+      </nav>
+      {showPopup && (
+        <div>
+          <div className="popup-overlay" onClick={handleNoClick}></div>
+          <div className="logout-popup">
+            <p>Are you sure?</p>
+            <div className="popup-buttons">
+              <button onClick={handleYesClick} className="popup-button yes">Yes</button>
+              <button onClick={handleNoClick} className="popup-button no">No</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
 export default NavBar;
+
