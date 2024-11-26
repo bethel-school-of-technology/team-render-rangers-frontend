@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getRecipeById } from '../services/recipeService';
+import { getRecipe } from '../services/recipeService';
 import { Recipe } from '../models/recipe';
 
 const RecipeDetails: React.FC = () => {
@@ -9,7 +9,7 @@ const RecipeDetails: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      getRecipeById(Number(id))
+      getRecipe(Number(id))
         .then(setRecipe)
         .catch(() => setRecipe(null)); // Handle errors 
     }
