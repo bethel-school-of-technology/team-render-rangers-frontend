@@ -1,18 +1,20 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useRecipeContext } from "../context/RecipeContext";
-import { Recipe } from "../models/recipe";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getRecipe } from '../services/recipeService';
+import { Recipe } from '../models/recipe';
 
 const RecipeDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Extract recipe ID from the URL
-  const { recipes } = useRecipeContext(); // Access the recipes from context
+  const { id } = useParams<{ id: string }>(); // get recipe ID from URL
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
 
-  // Find the recipe by its ID
-  const recipe: Recipe | undefined = recipes.find(
-    (recipe) => recipe.recipeId === Number(id)
-  );
+  useEffect(() => {
+    if (id) {
+      getRecipe(Number(id))
+        .then(setRecipe)
+        .catch(() => setRecipe(null)); // Handle errors 
+    }
+  }, [id]);
 
-  // If the recipe is not found, display an error message
   if (!recipe) {
     return <p>Recipe not found!</p>;
   }
@@ -24,7 +26,7 @@ const RecipeDetails: React.FC = () => {
       <img
         src={recipe.recipeImage}
         alt={recipe.recipeName}
-        style={{ width: "300px", height: "auto", marginBottom: "20px" }}
+        style={{ width: '300px', height: 'auto', marginBottom: '20px' }}
       />
 
       <h2>Ingredients</h2>
