@@ -16,6 +16,7 @@
   padding: 1rem 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  
 }
 
 .navbar-links {
@@ -23,10 +24,13 @@
   display: flex;
   gap: 1.5rem;
   padding-right: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .navbar-links li {
   position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-link {
@@ -38,11 +42,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  
+  
 }
 
 .navbar-link:hover {
   color: #333333;
   transform: translateY(-3px);
+  
 }
 
 .navbar-link::after {
@@ -54,6 +61,7 @@
   left: 0;
   background-color: #ffffff;
   transition: width 0.3s;
+  
 }
 
 .navbar-link:hover::after {
@@ -64,12 +72,14 @@
   .navbar {
     flex-direction: column;
     padding: 1rem;
+    
   }
 
   .navbar-links {
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
+    
   }
 }
 
@@ -84,6 +94,8 @@
   align-items: center;
   gap: 0.5rem;
   transition: color 0.3s, transform 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .logout-nav-button:hover {
