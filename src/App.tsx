@@ -7,7 +7,7 @@ import Feed from './pages/Feed.tsx';
 import CreateRecipe from './pages/CreateRecipe.tsx';
 import RecipeDetails from './pages/RecipeDetails.tsx';
 import Search from './pages/Search.tsx';
-import LogOut from './pages/LogOut.tsx';
+// import LogOut from './pages/LogOut.tsx';
 import { RecipeProvider } from './context/RecipeContext.tsx';
 
 const App: React.FC = () => {
