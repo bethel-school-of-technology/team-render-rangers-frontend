@@ -4,6 +4,7 @@ import { searchRecipes } from '../services/recipeService.tsx';
 import { Recipe } from '../models/recipe';
 import './Search.css';
 
+
 const Search = () => {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -25,6 +26,8 @@ const Search = () => {
   return (
     <div className="search-container">
       <NavBar />
+      <h1>Search</h1>
+
       <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"

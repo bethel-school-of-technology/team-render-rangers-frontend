@@ -46,8 +46,9 @@ const CreateRecipe = () => {
   return (
     <div className="create-recipe-container">
       <NavBar />
+      <h1>Create Recipe</h1>
+
       <form onSubmit={handleSubmit} className="create-recipe-form">
-        <h1>Create Recipe</h1>
         <input
           type="text"
           name="recipeName"
