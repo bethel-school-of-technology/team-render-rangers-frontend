@@ -45,6 +45,7 @@ const Feed = () => {
             <button className="view-recipe-button">View Recipe</button>
           </div>
         ))}
+          <p>No recipes to display yet!</p>
       </div>
     </div>
   );
