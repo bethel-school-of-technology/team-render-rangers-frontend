@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from "react";
 import axios from "axios";
 import { Recipe } from "../models/recipe";
+import { getAllRecipes } from "../services/recipeService.ts";
+
 
 // Define the shape of the RecipeContext
 interface RecipeContextProps {
@@ -17,11 +19,21 @@ export const RecipeProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   // Fetch recipes from the API
   useEffect(() => {
-    axios
-      .get("https://example.com/api/recipes") // replace with the real endpoint
-      .then((response) => setRecipes(response.data))
-      .catch((error) => console.error("Error fetching recipes:", error));
+    // Define the async function inside the useEffect
+    const fetchRecipes = async () => {
+      try {
+        const recipeData = await getAllRecipes();
+        // Update state with fetched data
+        setRecipes(recipeData);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+  
+    // Call the async function
+    fetchRecipes();
   }, []);
+  
 
   // Helper function to get a recipe by ID
   const getRecipeById = (id: number): Recipe | undefined => {

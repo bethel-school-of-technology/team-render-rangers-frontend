@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar.tsx';
-import { createRecipe } from '../services/recipeService.tsx';
 import './CreateRecipe.css';
+import { createRecipe } from '../services/recipeService.ts';
 
 const CreateRecipe = () => {
   const [formData, setFormData] = useState({

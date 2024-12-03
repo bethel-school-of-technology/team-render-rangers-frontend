@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar.tsx';
-import { searchRecipes } from '../services/recipeService.tsx';
+import { searchRecipes } from '../services/recipeService.ts';
 import { Recipe } from '../models/recipe';
 import './Search.css';
 

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar.tsx';
-import { getAllRecipes } from '../services/recipeService.tsx'; // Import your service
+import { getAllRecipes } from '../services/recipeService.ts'; // Import your service
 import { Recipe } from '../models/recipe'; // Ensure the Recipe type is imported
 import './Feed.css';
+import { useRecipeContext } from '../context/RecipeContext.tsx';
 
 const Feed = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]); // State to hold recipe data
+  // const [recipes, setRecipes] = useState<Recipe[]>([]); // State to hold recipe data
+
+
+const {recipes } = useRecipeContext();
+
 
   // Fetch recipes when the component mounts
-  useEffect(() => {
-    getAllRecipes()
-      .then(setRecipes)
-      .catch(console.error); // Handle any errors gracefully
-  }, []);
 
   return (
     <div className="feed-container">
