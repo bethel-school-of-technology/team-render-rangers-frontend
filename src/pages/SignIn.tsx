@@ -40,8 +40,7 @@ const SignIn = () => {
           className="signin-input"
         />
         <button type="submit" className="signin-button">Log In</button>
-        <p className="forgot-password"><a href="/signup">Forgot password?</a></p> 
-        {/* Should we keep the "Forgot password" section? */}
+        <p className="forgot-password"><a href="/forgot-password">Forgot password?</a></p> 
       </form>
     </div>
   );
