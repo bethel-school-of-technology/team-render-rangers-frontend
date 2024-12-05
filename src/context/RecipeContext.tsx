@@ -1,57 +1,40 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useState, useEffect, ReactNode, useContext } from "react";
 import axios from "axios";
 import { Recipe } from "../models/recipe";
 import { getAllRecipes } from "../services/recipeService.ts";
 
 
-// Define the shape of the RecipeContext
 interface RecipeContextProps {
   recipes: Recipe[];
-  getRecipeById: (id: number) => Recipe | undefined; 
+  setRecipes: React.Dispatch<React.SetStateAction<Recipe[]>>;
+  getRecipeById: (id: number) => Recipe | undefined;
 }
 
-// RecipeContext
+// Define the provider's props, including children
+interface RecipeProviderProps {
+  children: ReactNode;
+}
+
 const RecipeContext = createContext<RecipeContextProps | undefined>(undefined);
 
-// RecipeProvider component
-export const RecipeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const RecipeProvider: React.FC<RecipeProviderProps> = ({ children }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
-  // Fetch recipes from the API
-  useEffect(() => {
-    // Define the async function inside the useEffect
-    const fetchRecipes = async () => {
-      try {
-        const recipeData = await getAllRecipes();
-        // Update state with fetched data
-        setRecipes(recipeData);
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-      }
-    };
-  
-    // Call the async function
-    fetchRecipes();
-  }, []);
-  
-
-  // Helper function to get a recipe by ID
   const getRecipeById = (id: number): Recipe | undefined => {
     return recipes.find((recipe) => recipe.recipeId === id);
   };
 
   return (
-    <RecipeContext.Provider value={{ recipes, getRecipeById }}>
+    <RecipeContext.Provider value={{ recipes, setRecipes, getRecipeById }}>
       {children}
     </RecipeContext.Provider>
   );
 };
 
-// Custom hook to access the RecipeContext
 export const useRecipeContext = (): RecipeContextProps => {
-  const context = React.useContext(RecipeContext);
+  const context = useContext(RecipeContext);
   if (!context) {
-    throw new Error("useRecipeContext must be used within a RecipeProvider");
+    throw new Error('useRecipeContext must be used within a RecipeProvider');
   }
   return context;
 };
