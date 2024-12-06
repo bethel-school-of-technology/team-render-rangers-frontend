@@ -10,7 +10,7 @@ interface RecipeContextProps {
   getRecipeById: (id: number) => Recipe | undefined;
 }
 
-// Define the provider's props, including children
+// Define provider props
 interface RecipeProviderProps {
   children: ReactNode;
 }

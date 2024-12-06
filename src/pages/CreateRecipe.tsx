@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar.tsx'; // Navigation Bar
-import './CreateRecipe.css'; // Styles for Create Recipe
-import { createRecipe } from '../services/recipeService.ts'; // API Service
+import NavBar from '../components/NavBar.tsx'; 
+import './CreateRecipe.css'; 
+import { createRecipe } from '../services/recipeService.ts'; 
 
 const CreateRecipe = () => {
-  // Form state
+ 
   const [formData, setFormData] = useState({
     recipeName: '',
     recipeCategory: '',
@@ -13,30 +13,30 @@ const CreateRecipe = () => {
     recipeImage: '',
   });
 
-  // Success or error messages
+  
   const [message, setMessage] = useState('');
 
-  // Handle form input changes
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const newRecipe = {
         recipeName: formData.recipeName,
         recipeCategory: formData.recipeCategory,
-        recipeIngredients: formData.recipeIngredients, // Already a string
-        recipeInstructions: formData.recipeInstructions, // Already a string
-        recipeImgUrl: formData.recipeImage, // Corrected field name
+        recipeIngredients: formData.recipeIngredients, 
+        recipeInstructions: formData.recipeInstructions, 
+        recipeImgUrl: formData.recipeImage, 
       };
 
       console.log('Submitting recipe:', newRecipe);
 
-      const response = await createRecipe(newRecipe); // Send the updated payload
+      const response = await createRecipe(newRecipe); 
       console.log('API Response:', response);
 
       setMessage('Recipe created successfully!');
@@ -56,7 +56,7 @@ const CreateRecipe = () => {
 
 
 
-  // Render form
+ 
   return (
     <div className="create-recipe-container">
       <NavBar />

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Recipe } from '../models/recipe';
 
-const API_BASE_URL = 'http://localhost:5117/api/recipe'; // Replace with actual API URL
+const API_BASE_URL = 'http://localhost:5117/api/recipe'; 
 
 // Fetch all recipes
 export const getAllRecipes = async (): Promise<Recipe[]> => {
@@ -18,10 +18,10 @@ export const getRecipe = async (id: number): Promise<Recipe> => {
 export const createRecipe = async (recipeData: any): Promise<any> => {
   try {
     const response = await axios.post(API_BASE_URL, recipeData);
-    console.log('Backend response:', response.data); // Debug log
+    console.log('Backend response:', response.data); 
     return response.data;
   } catch (error) {
-    console.error('Error from backend:', error.response?.data || error.message); // Debug log
+    console.error('Error from backend:', error.response?.data || error.message); 
     throw error;
   }
 };
