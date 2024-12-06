@@ -48,7 +48,7 @@ const Feed = () => {
                 <img src={recipes[0].recipeImage} alt={recipes[0].recipeName} />
                 <h3>{recipes[0].recipeName}</h3>
                 <p>{recipes[0].recipeCategory}</p>
-                <button className="view-recipe-button">View Recipe</button>
+                <button className="view-recipe-button"><a href="/recipe/:id">View Recipe</a></button>
               </div>
             ) : (
               <p>No recipes to display yet!</p>
@@ -64,7 +64,7 @@ const Feed = () => {
                   <img src={recipe.recipeImage} alt={recipe.recipeName} />
                   <h3>{recipe.recipeName}</h3>
                   <p>{recipe.recipeCategory}</p>
-                  <button className="view-recipe-button">View Recipe</button>
+                  <button className="view-recipe-button" >View Recipe</button>
                 </div>
               ))
             ) : (

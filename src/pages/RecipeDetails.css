@@ -63,3 +63,8 @@
 .save-recipe-button:hover {
   background-color: #0056b3;
 }
+
+.save-recipe-button a {
+  color: white;
+  text-decoration: none; 
+}

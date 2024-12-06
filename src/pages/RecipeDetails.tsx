@@ -15,7 +15,7 @@ const RecipeDetails = () => {
       <div className="ingredient-list">
         <p className="ingredient-item">Ingredients/Directions</p>
       </div>
-      <button className="save-recipe-button">Save Recipe</button>
+      <button className="save-recipe-button"><a href = "/profile">Save Recipe</a></button>
     </div>
   );
 };
