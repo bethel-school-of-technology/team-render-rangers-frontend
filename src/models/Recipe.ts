@@ -1,5 +1,5 @@
 export class Recipe {
-  recipeId?: number; // Make recipeId optional
+  recipeId?: number; // make recipeId optional
   recipeName: string;
   recipeCategory: string;
   recipeIngredients: string[];

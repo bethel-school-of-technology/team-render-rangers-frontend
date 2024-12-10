@@ -3,13 +3,13 @@ import { Recipe } from '../models/recipe';
 
 const API_BASE_URL = 'http://localhost:5117/api/recipe'; 
 
-// Fetch all recipes
+// fetch all recipes
 export const getAllRecipes = async (): Promise<Recipe[]> => {
   const response = await axios.get(`${API_BASE_URL}`);
   return response.data;
 };
 
-// Fetch a single recipe by ID
+// fetch recipe by ID
 export const getRecipe = async (id: number): Promise<Recipe> => {
   const response = await axios.get(`${API_BASE_URL}/${id}`);
   return response.data;
@@ -26,18 +26,18 @@ export const createRecipe = async (recipeData: any): Promise<any> => {
   }
 };
 
-// Update an existing recipe
+// update existing recipe
 export const updateRecipe = async (id: number, updatedRecipe: Recipe): Promise<Recipe> => {
   const response = await axios.put(`${API_BASE_URL}/${id}`, updatedRecipe);
   return response.data;
 };
 
-// Delete a recipe by ID
+// delete recipe by ID
 export const deleteRecipe = async (id: number): Promise<void> => {
   await axios.delete(`${API_BASE_URL}/${id}`);
 };
 
-// Search for recipes by query string
+// search recipes by query string
 export const searchRecipes = async (query: string): Promise<Recipe[]> => {
   const response = await axios.get(`${API_BASE_URL}/search?q=${query}`);
   return response.data;
