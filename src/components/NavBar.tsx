@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaUser, FaUtensils, FaPlus, FaSearch, FaSignOutAlt } from 'react-icons/fa';
 import './NavBar.css';
 
@@ -24,8 +24,8 @@ const NavBar = () => {
       <nav className="navbar">
         <ul className="navbar-links">
           <li><a href="/profile" className="navbar-link"><FaUser /> Profile</a></li>
-          <li><a href="/feed" className="navbar-link"><FaUtensils /> Feed</a></li>
-          <li><a href="/create-recipe" className="navbar-link"><FaPlus /> Create Recipe</a></li>
+          <li><Link to="/feed" className="navbar-link"><FaUtensils /> Feed</Link></li>
+          <li><Link to="/create-recipe" className="navbar-link"><FaPlus /> Create Recipe</Link></li>
           <li><a href="/search" className="navbar-link"><FaSearch /> Search</a></li>
           <li><button className="logout-nav-button" onClick={handleLogoutClick}><FaSignOutAlt /> Log Out</button></li>
         </ul>
