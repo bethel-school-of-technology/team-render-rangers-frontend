@@ -55,12 +55,12 @@ const Profile = () => {
           savedRecipes.map((recipe) => (
             <div key={recipe.id} className="saved-recipe-card">
               <img
-                src={recipe.image || 'https://via.placeholder.com/100'}
+                src={recipe.recipeImgUrl || 'https://via.placeholder.com/100'}
                 alt={recipe.name}
               />
               <div className="saved-recipe-info">
                 <h2 className="saved-recipe-name">{recipe.recipeName}</h2>
-                <p className="saved-recipe-image">{recipe.recipeImage}</p>
+                <p className="saved-recipe-image">{recipe.recipeInstructions}</p>
                 <button className="view-recipe-button">
                   <a href={`/recipe/${recipe.id}`}>View Recipe</a>
                 </button>

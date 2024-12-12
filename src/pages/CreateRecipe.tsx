@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar.tsx'; 
-import './CreateRecipe.css'; 
-import { createRecipe } from '../services/recipeService.ts'; 
+import NavBar from '../components/NavBar.tsx';
+import './CreateRecipe.css';
+import { createRecipe } from '../services/recipeService.ts';
 
 const CreateRecipe = () => {
- 
+
   const [formData, setFormData] = useState({
     recipeName: '',
     recipeCategory: '',
     recipeIngredients: '',
     recipeInstructions: '',
-    recipeImage: '',
+    recipeImgUrl: '',
   });
 
-  
+
   const [message, setMessage] = useState('');
 
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -29,14 +29,14 @@ const CreateRecipe = () => {
       const newRecipe = {
         recipeName: formData.recipeName,
         recipeCategory: formData.recipeCategory,
-        recipeIngredients: formData.recipeIngredients, 
-        recipeInstructions: formData.recipeInstructions, 
-        recipeImgUrl: formData.recipeImage, 
+        recipeIngredients: formData.recipeIngredients,
+        recipeInstructions: formData.recipeInstructions,
+        recipeImgUrl: formData.recipeImgUrl,
       };
 
       console.log('Submitting recipe:', newRecipe);
 
-      const response = await createRecipe(newRecipe); 
+      const response = await createRecipe(newRecipe);
       console.log('API Response:', response);
 
       setMessage('Recipe created successfully!');
@@ -45,7 +45,7 @@ const CreateRecipe = () => {
         recipeCategory: '',
         recipeIngredients: '',
         recipeInstructions: '',
-        recipeImage: '',
+        recipeImgUrl: '',
       });
     } catch (error) {
       console.error('Error creating recipe:', error.response?.data || error.message);
@@ -56,7 +56,7 @@ const CreateRecipe = () => {
 
 
 
- 
+
   return (
     <div className="create-recipe-container">
       <NavBar />
@@ -109,7 +109,7 @@ const CreateRecipe = () => {
           <input
             type="text"
             name="recipeImage"
-            value={formData.recipeImage}
+            value={formData.recipeImgUrl}
             onChange={handleInputChange}
             required
             className="create-recipe-input"
