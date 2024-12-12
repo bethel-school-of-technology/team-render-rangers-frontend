@@ -16,6 +16,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log('Token in AuthProvider:', token);
+        console.log('User in AuthProvider:', user);
+      }, [token, user]);
+      
+
+    useEffect(() => {
         const storedToken = localStorage.getItem('token');
         const storedUser = localStorage.getItem('user');
 

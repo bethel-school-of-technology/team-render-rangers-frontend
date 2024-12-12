@@ -52,7 +52,7 @@ const App: React.FC = () => {
           }
         />
         <Route
-          path="/recipe/:id"
+          path="/recipe/:recipeId" // changed this from "/recipe/:id"
           element={
             <PrivateRoute>
               <RecipeDetails />
