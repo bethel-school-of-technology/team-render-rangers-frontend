@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Recipe } from '../models/recipe';
 
-const API_BASE_URL = 'http://localhost:5117/api/recipe'; 
+const API_BASE_URL = 'http://localhost:5117/api/recipe';
 
 // fetch all recipes
 export const getAllRecipes = async (): Promise<Recipe[]> => {
@@ -17,11 +17,15 @@ export const getRecipe = async (id: number): Promise<Recipe> => {
 
 export const createRecipe = async (recipeData: any): Promise<any> => {
   try {
-    const response = await axios.post(API_BASE_URL, recipeData);
-    console.log('Backend response:', response.data); 
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    const response = await axios.post(API_BASE_URL, recipeData, config);
+    console.log('Backend response:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error from backend:', error.response?.data || error.message); 
+    console.error('Error from backend:', error.response?.data || error.message);
     throw error;
   }
 };
@@ -42,3 +46,15 @@ export const searchRecipes = async (query: string): Promise<Recipe[]> => {
   const response = await axios.get(`${API_BASE_URL}/search?q=${query}`);
   return response.data;
 };
+
+// get individual users saved recipes 
+export const getSavedRecipes = async (): Promise<Recipe[]> => {
+  const token = localStorage.getItem('token');
+  const response = await axios.get(`${API_BASE_URL}/user`, { // should this be /user/id?
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
+

@@ -18,8 +18,8 @@ const SignIn: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const token = await loginUser(formData); 
-      login(token); 
+      const user = await loginUser(formData); 
+      login(user, user.token); 
       navigate('/feed'); 
     } catch (error) {
       console.error('Login failed:', error);
