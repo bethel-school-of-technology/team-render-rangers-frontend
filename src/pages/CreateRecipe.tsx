@@ -108,7 +108,7 @@ const CreateRecipe = () => {
         <div className="form-group">
           <input
             type="text"
-            name="recipeImage"
+            name="recipeImgUrl"
             value={formData.recipeImgUrl}
             onChange={handleInputChange}
             required

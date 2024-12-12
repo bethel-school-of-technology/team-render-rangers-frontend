@@ -7,7 +7,7 @@ import './Profile.css';
 import { Recipe } from '../models/recipe.ts';
 
 const Profile = () => {
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [savedRecipes, setSavedRecipes] = useState<Recipe[]>([]);
 
@@ -62,7 +62,7 @@ const Profile = () => {
                 <h2 className="saved-recipe-name">{recipe.recipeName}</h2>
                 <p className="saved-recipe-image">{recipe.recipeInstructions}</p>
                 <button className="view-recipe-button">
-                  <a href={`/recipe/${recipe.id}`}>View Recipe</a>
+                  <a href={`/recipe/${recipe.recipeId}`}>View Recipe</a>
                 </button>
               </div>
             </div>
