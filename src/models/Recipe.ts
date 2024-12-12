@@ -6,7 +6,7 @@ export class Recipe {
   recipeCategory: string;
   recipeIngredients: string[];
   recipeInstructions: string[];
-  recipeImage: string;
+  recipeImgUrl: string;
   id: Key | null | undefined;
   image: string;
   name: string | undefined;
@@ -18,13 +18,13 @@ export class Recipe {
     recipeCategory: string,
     recipeIngredients: string[],
     recipeInstructions: string[],
-    recipeImage: string
+    recipeImgUrl: string
   ) {
     this.recipeId = recipeId;
     this.recipeName = recipeName;
     this.recipeCategory = recipeCategory;
     this.recipeIngredients = recipeIngredients;
     this.recipeInstructions = recipeInstructions;
-    this.recipeImage = recipeImage;
+    this.recipeImgUrl = recipeImgUrl;
   }
 }
