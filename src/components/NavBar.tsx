@@ -23,10 +23,10 @@ const NavBar = () => {
     <>
       <nav className="navbar">
         <ul className="navbar-links">
-          <li><a href="/profile" className="navbar-link"><FaUser /> Profile</a></li>
+          <li><Link to="/profile" className="navbar-link"><FaUser /> Profile</Link></li>
           <li><Link to="/feed" className="navbar-link"><FaUtensils /> Feed</Link></li>
           <li><Link to="/create-recipe" className="navbar-link"><FaPlus /> Create Recipe</Link></li>
-          <li><a href="/search" className="navbar-link"><FaSearch /> Search</a></li>
+          <li><Link to="/search" className="navbar-link"><FaSearch /> Search</Link></li>
           <li><button className="logout-nav-button" onClick={handleLogoutClick}><FaSignOutAlt /> Log Out</button></li>
         </ul>
       </nav>

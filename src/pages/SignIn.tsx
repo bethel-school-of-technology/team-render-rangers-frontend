@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
     e.preventDefault();
     try {
       const token = await loginUser(formData); 
-      login(token); 
+      login(null, token); 
       navigate('/feed'); 
     } catch (error) {
       console.error('Login failed:', error);
