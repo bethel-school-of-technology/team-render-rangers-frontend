@@ -30,23 +30,23 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #ffffff; /* Match input background */
-  color: #333; /* Match font color */
+  background-color: #ffffff; 
+  color: #333; 
   box-sizing: border-box;
 }
 
 .create-recipe-input:focus,
 .create-recipe-textarea:focus {
-  border-color: #007bff; /* Add blue focus border */
+  border-color: #007bff;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle focus effect */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
 }
 
 .create-recipe-textarea {
-  resize: none; /* Disable resizing */
-  height: 120px; /* Ensure consistent height */
-  font-family: Arial, sans-serif; /* Match font with other fields */
-  line-height: 1.5; /* Improve readability */
+  resize: none; 
+  height: 120px; 
+  font-family: Arial, sans-serif;
+  line-height: 1.5; 
 }
 
 .create-recipe-button {
