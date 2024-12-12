@@ -16,6 +16,7 @@ const Profile = () => {
     //   navigate('/signin'); // redirect if not qualified 
     //   return;
     // }
+    console.log(user);
 
     const fetchSavedRecipes = async () => {
       try {
@@ -37,14 +38,17 @@ const Profile = () => {
     <div className="profile-container">
       <NavBar />
       <div className="profile-header">
-        {/* <img
+        <img
           src={user.avatar || 'https://via.placeholder.com/150'}
           alt="User avatar"
           className="profile-avatar"
         />
         <div className="profile-name-container">
-          <span className="profile-name">{user.name || 'User Name'}</span>
-        </div> */}
+          <span className="profile-name">{user.Name || 'User Name'}</span>
+        </div>
+        <div className="profile-name-container">
+          <span className="profile-name">{user.Email || 'User Email'}</span>
+        </div>
       </div>
       <div className="saved-recipes">
         {savedRecipes.length > 0 ? (
