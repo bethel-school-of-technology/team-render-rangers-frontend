@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.tsx';
 import { getSavedRecipes } from '../services/recipeService.ts';
 import NavBar from '../components/NavBar.tsx';
@@ -62,7 +62,7 @@ const Profile = () => {
                 <h2 className="saved-recipe-name">{recipe.recipeName}</h2>
                 <p className="saved-recipe-image">{recipe.recipeInstructions}</p>
                 <button className="view-recipe-button">
-                  <a href={`/recipe/${recipe.recipeId}`}>View Recipe</a>
+                  <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
                 </button>
               </div>
             </div>

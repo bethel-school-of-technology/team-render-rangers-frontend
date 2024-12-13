@@ -18,8 +18,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     useEffect(() => {
         console.log('Token in AuthProvider:', token);
         console.log('User in AuthProvider:', user);
-      }, [token, user]);
-      
+    }, [token, user]);
+
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -47,7 +47,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setToken(null);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        navigate('/signin'); // Redirect to sign-in page after logout
+        navigate('/'); // Redirect to sign-in page after logout
     };
 
     return (
