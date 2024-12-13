@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.tsx';
-import { getSavedRecipes } from '../services/recipeService.ts';
+import { getSavedRecipes, deleteRecipe } from '../services/recipeService.ts'; // Include deleteRecipe service
 import NavBar from '../components/NavBar.tsx';
 import './Profile.css';
 import { Recipe } from '../models/recipe.ts';
@@ -12,12 +12,6 @@ const Profile = () => {
   const [savedRecipes, setSavedRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
-    // if (!token) {
-    //   navigate('/signin'); // redirect if not qualified 
-    //   return;
-    // }
-    console.log(user);
-
     const fetchSavedRecipes = async () => {
       try {
         const recipes = await getSavedRecipes();
@@ -30,9 +24,15 @@ const Profile = () => {
     fetchSavedRecipes();
   }, [navigate]);
 
-  // if (!user) {
-  //   return null;
-  // }
+  // Handle delete recipe
+  const handleDelete = async (recipeId: number) => {
+    try {
+      await deleteRecipe(recipeId);
+      setSavedRecipes((prev) => prev.filter((recipe) => recipe.recipeId !== recipeId));
+    } catch (error) {
+      console.error('Error deleting recipe:', error);
+    }
+  };
 
   return (
     <div className="profile-container">
@@ -53,17 +53,34 @@ const Profile = () => {
       <div className="saved-recipes">
         {savedRecipes.length > 0 ? (
           savedRecipes.map((recipe) => (
-            <div key={recipe.id} className="saved-recipe-card">
+            <div key={recipe.recipeId} className="saved-recipe-card">
               <img
                 src={recipe.recipeImgUrl || 'https://via.placeholder.com/100'}
-                alt={recipe.name}
+                alt={recipe.recipeName}
               />
               <div className="saved-recipe-info">
                 <h2 className="saved-recipe-name">{recipe.recipeName}</h2>
                 <p className="saved-recipe-image">{recipe.recipeInstructions}</p>
-                <button className="view-recipe-button">
-                  <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
-                </button>
+                <div className="recipe-action-buttons">
+                  <button className="view-recipe-button">
+                    <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
+                  </button>
+                  <button
+                    className="edit-recipe-button"
+                    onClick={() => navigate(`/edit-recipe/${recipe.recipeId}`)}
+                  >
+                    Edit
+                  </button>
+                  {recipe.recipeId && (
+  <button
+    className="delete-recipe-button"
+    onClick={() => handleDelete(recipe.recipeId!)} 
+  >
+    Delete
+  </button>
+)}
+
+                </div>
               </div>
             </div>
           ))
