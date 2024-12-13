@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaUser, FaUtensils, FaPlus, FaSearch, FaSignOutAlt } from 'react-icons/fa';
 import './NavBar.css';
+import { useAuth } from '../context/AuthContext.tsx';
 
 const NavBar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleLogoutClick = () => {
     setShowPopup(true);
   };
 
   const handleYesClick = () => {
-    navigate('/');
+    logout();
   };
 
   const handleNoClick = () => {

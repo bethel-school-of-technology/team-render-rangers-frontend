@@ -4,6 +4,7 @@ import { getAllRecipes } from '../services/recipeService.ts';
 import { Recipe } from '../models/recipe';
 import './Feed.css';
 import { useRecipeContext } from '../context/RecipeContext.tsx';
+import { Link } from 'react-router-dom';
 
 const Feed = () => {
   const { recipes, setRecipes } = useRecipeContext();
@@ -41,7 +42,7 @@ const Feed = () => {
       {!isLoading && !error && (
         <>
 
-          <div className="post-section">
+          {/* <div className="post-section">
             <h2>Your Post</h2>
             {recipes.length > 0 ? (
               <div className="recipe-card">
@@ -53,18 +54,20 @@ const Feed = () => {
             ) : (
               <p>No recipes to display yet!</p>
             )}
-          </div>
+          </div> */}
 
 
           <div className="post-section">
-            <h2>Other Users</h2>
+            <h2>All recipes</h2>
             {recipes.length > 1 ? (
-              recipes.slice(1).map((recipe) => (
+              recipes.map((recipe) => (
                 <div key={recipe.recipeId} className="recipe-card">
                   <img src={recipe.recipeImgUrl} alt={recipe.recipeName} />
                   <h3>{recipe.recipeName}</h3>
                   <p>{recipe.recipeCategory}</p>
-                  <button className="view-recipe-button" >View Recipe</button>
+                  <button className="view-recipe-button">
+                    <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
+                  </button>
                 </div>
               ))
             ) : (
