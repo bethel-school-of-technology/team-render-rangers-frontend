@@ -11,6 +11,8 @@ import ForgotPassword from './pages/ForgotPassword.tsx';
 import { RecipeProvider } from './context/RecipeContext.tsx';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext.tsx';
+import UpdateRecipe from './pages/UpdateRecipe.tsx';
+
 
 
 const PrivateRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
@@ -52,7 +54,15 @@ const App: React.FC = () => {
           }
         />
         <Route
-          path="/recipe/:recipeId" // changed this from "/recipe/:id"
+          path="/update-recipe/:recipeId"
+          element={
+            <PrivateRoute>
+              <UpdateRecipe />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recipe/:recipeId"
           element={
             <PrivateRoute>
               <RecipeDetails />
@@ -75,5 +85,6 @@ const App: React.FC = () => {
     </RecipeProvider>
   );
 };
+
 
 export default App;

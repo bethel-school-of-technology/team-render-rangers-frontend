@@ -11,7 +11,7 @@ export const getAllRecipes = async (): Promise<Recipe[]> => {
 
 // fetch recipe by ID
 export const getRecipe = async (id: number): Promise<Recipe> => {
-  const response = await axios.get(`${API_BASE_URL}/${id}`);
+  const response = await axios.get<Recipe>(`${API_BASE_URL}/${id}`);
   return response.data;
 };
 
@@ -31,15 +31,30 @@ export const createRecipe = async (recipeData: any): Promise<any> => {
 };
 
 // update existing recipe
-export const updateRecipe = async (id: number, updatedRecipe: Recipe): Promise<Recipe> => {
-  const response = await axios.put(`${API_BASE_URL}/${id}`, updatedRecipe);
+export const updateRecipe = async (id: number, recipeData: Partial<Recipe>) => {
+  const token = localStorage.getItem("token"); // Or retrieve the token from your auth context/state
+  const response = await axios.put(
+    `${API_BASE_URL}/${id}`,
+    recipeData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // Attach token to the request
+      },
+    }
+  );
   return response.data;
 };
 
-// delete recipe by ID
+// delete recipe
 export const deleteRecipe = async (id: number): Promise<void> => {
-  await axios.delete(`${API_BASE_URL}/${id}`);
+  const token = localStorage.getItem("token");
+  await axios.delete(`${API_BASE_URL}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
+
 
 // search recipes by query string
 export const searchRecipes = async (query: string): Promise<Recipe[]> => {

@@ -24,7 +24,7 @@ const RecipeDetails: React.FC = () => {
       <h1>{recipe.recipeName}</h1>
       <p>Category: {recipe.recipeCategory}</p>
       <img
-        src={recipe.recipeImage}
+        src={recipe.recipeImgUrl}
         alt={recipe.recipeName}
         style={{ width: '300px', height: 'auto', marginBottom: '20px' }}
       />
