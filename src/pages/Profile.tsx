@@ -17,12 +17,13 @@ const Profile = () => {
         const recipes = await getSavedRecipes();
         setSavedRecipes(recipes);
       } catch (error) {
-        console.error('Error fetching saved recipes:', error);
+        console.error("Error fetching saved recipes:", error);
       }
     };
 
     fetchSavedRecipes();
-  }, [navigate]);
+  }, [navigate]); // Dependency triggers refetch
+
 
   // Handle delete recipe
   const handleDelete = async (recipeId: number) => {
@@ -66,19 +67,20 @@ const Profile = () => {
                     <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
                   </button>
                   <button
-                    className="edit-recipe-button"
-                    onClick={() => navigate(`/edit-recipe/${recipe.recipeId}`)}
+                    className="update-recipe-button"
+                    onClick={() => navigate(`/update-recipe/${recipe.recipeId}`)}
                   >
-                    Edit
+                    Update
                   </button>
+
                   {recipe.recipeId && (
-  <button
-    className="delete-recipe-button"
-    onClick={() => handleDelete(recipe.recipeId!)} 
-  >
-    Delete
-  </button>
-)}
+                    <button
+                      className="delete-recipe-button"
+                      onClick={() => handleDelete(recipe.recipeId!)}
+                    >
+                      Delete
+                    </button>
+                  )}
 
                 </div>
               </div>

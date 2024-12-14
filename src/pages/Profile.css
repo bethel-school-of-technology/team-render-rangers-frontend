@@ -40,7 +40,7 @@
   font-weight: bold;
 }
 
-.edit-icon {
+.update-icon {
   cursor: pointer;
 }
 
@@ -109,11 +109,11 @@
   color: white;
 }
 
-.edit-recipe-button {
+.update-recipe-button {
   background-color: #0056b3;
 }
 
-.edit-recipe-button:hover {
+.update-recipe-button:hover {
   background-color: #0056b3;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .view-recipe-button,
-.edit-recipe-button,
+.update-recipe-button,
 .delete-recipe-button {
   padding: 0.5rem 1rem;
   background-color: #007bff;
