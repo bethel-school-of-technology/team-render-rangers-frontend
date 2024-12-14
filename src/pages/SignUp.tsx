@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar.tsx'; // Import NavBar
-import './SignUp.css'; // Import your CSS
-import { useAuth } from '../context/AuthContext.tsx'; // Import AuthContext
-import { registerUser } from '../services/authService.ts'; // Import registration service
-import { useNavigate } from 'react-router-dom'; // Import navigation hook
+import NavBar from '../components/NavBar.tsx'; 
+import './SignUp.css'; 
+import { useAuth } from '../context/AuthContext.tsx'; 
+import { registerUser } from '../services/authService.ts'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const SignUp: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
-  const { login } = useAuth(); // Access login function from AuthContext
-  const navigate = useNavigate(); // Navigation hook
+  const { login } = useAuth(); 
+  const navigate = useNavigate(); 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -19,8 +19,7 @@ const SignUp: React.FC = () => {
     e.preventDefault();
     try {
       const data = await registerUser(formData); 
-      // login(data.user, data.token); 
-      navigate('/feed'); // redirect to feed
+      navigate('/feed'); 
     } catch (error) {
       console.error('Registration failed:', error);
       alert('Failed to register. Please try again.');

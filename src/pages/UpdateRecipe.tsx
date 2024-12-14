@@ -6,7 +6,6 @@ import { getRecipe, updateRecipe } from "../services/recipeService.ts";
 import './CreateRecipe.css'; 
 import { Recipe } from "../models/recipe.ts";
 
-// Define props expected by RecipeForm
 type RecipeFormProps = {
   recipeName: string;
   recipeCategory: string;
@@ -27,7 +26,6 @@ const UpdateRecipe: React.FC = () => {
           const recipe = await getRecipe(parseInt(recipeId, 10));
           console.log("Fetched Recipe:", recipe);
 
-          // Normalize data for RecipeForm
           setInitialData({
             recipeName: recipe.recipeName,
             recipeCategory: recipe.recipeCategory,
@@ -60,7 +58,6 @@ const UpdateRecipe: React.FC = () => {
     }
 
     try {
-      // Prepare data for backend
       const updatedPayload: Recipe = {
         recipeId: parsedRecipeId,
         recipeName: updatedData.recipeName,
@@ -76,7 +73,7 @@ const UpdateRecipe: React.FC = () => {
 
       console.log("Updating with payload:", updatedPayload);
       await updateRecipe(parsedRecipeId, updatedPayload);
-      navigate("/profile"); // Redirect after successful update
+      navigate("/profile"); 
     } catch (error) {
       console.error("Failed to update recipe:", error.response?.data || error.message);
     }
