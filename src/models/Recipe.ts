@@ -2,16 +2,17 @@ export class Recipe {
   recipeId?: number; 
   recipeName: string;
   recipeCategory: string;
-  recipeIngredients: string[];
-  recipeInstructions: string[];
+  recipeIngredients: string;
+  recipeInstructions: string;
   recipeImgUrl: string;
+  userId?: number;
 
   constructor(
     recipeId: number,
     recipeName: string,
     recipeCategory: string,
-    recipeIngredients: string[],
-    recipeInstructions: string[],
+    recipeIngredients: string,
+    recipeInstructions: string,
     recipeImgUrl: string
   ) {
     this.recipeId = recipeId;

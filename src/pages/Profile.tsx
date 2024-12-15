@@ -59,11 +59,11 @@ const Profile = () => {
               />
               <div className="saved-recipe-info">
                 <h2 className="saved-recipe-name">{recipe.recipeName}</h2>
-                <p className="saved-recipe-image">{recipe.recipeInstructions}</p>
+                <p>{recipe.recipeCategory}</p>
+                  <p>{recipe.recipeIngredients}</p>
+                  <p>{recipe.recipeInstructions }</p>
                 <div className="recipe-action-buttons">
-                  <button className="view-recipe-button">
-                    <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
-                  </button>
+                  
                   <button
                     className="update-recipe-button"
                     onClick={() => navigate(`/update-recipe/${recipe.recipeId}`)}

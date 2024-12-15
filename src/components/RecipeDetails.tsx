@@ -31,16 +31,12 @@ const RecipeDetails: React.FC = () => {
 
       <h2>Ingredients</h2>
       <ul>
-        {recipe.recipeIngredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
+        {recipe.recipeIngredients}
       </ul>
 
       <h2>Instructions</h2>
       <ol>
-        {recipe.recipeInstructions.map((instruction, index) => (
-          <li key={index}>{instruction}</li>
-        ))}
+        {recipe.recipeInstructions}
       </ol>
     </div>
   );

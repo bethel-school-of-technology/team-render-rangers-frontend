@@ -45,8 +45,10 @@ const Search = () => {
           <div key={recipe.recipeId} className="recipe-card">
             <img src={recipe.recipeImgUrl} alt={recipe.recipeName} />
             <h2>{recipe.recipeName}</h2>
+      
             <p>{recipe.recipeCategory}</p>
-            <button className="search-button">View Recipe</button>
+                  <p>{recipe.recipeIngredients}</p>
+                  <p>{recipe.recipeInstructions }</p>
           </div>
         ))}
       </div>
