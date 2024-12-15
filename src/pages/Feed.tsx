@@ -49,9 +49,9 @@ const Feed = () => {
                   <img src={recipe.recipeImgUrl} alt={recipe.recipeName} />
                   <h3>{recipe.recipeName}</h3>
                   <p>{recipe.recipeCategory}</p>
-                  <button className="view-recipe-button">
-                    <Link to={`/recipe/${recipe.recipeId}`}>View Recipe</Link>
-                  </button>
+                  <p>{recipe.recipeIngredients}</p>
+                  <p>{recipe.recipeInstructions }</p>
+                 
                 </div>
               ))
             ) : (
