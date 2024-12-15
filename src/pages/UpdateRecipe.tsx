@@ -26,17 +26,7 @@ const UpdateRecipe: React.FC = () => {
           const recipe = await getRecipe(parseInt(recipeId, 10));
           console.log("Fetched Recipe:", recipe);
 
-          setInitialData({
-            recipeName: recipe.recipeName,
-            recipeCategory: recipe.recipeCategory,
-            recipeIngredients: Array.isArray(recipe.recipeIngredients)
-              ? recipe.recipeIngredients.join(", ")
-              : recipe.recipeIngredients || "",
-            recipeInstructions: Array.isArray(recipe.recipeInstructions)
-              ? recipe.recipeInstructions.join(". ")
-              : recipe.recipeInstructions || "",
-            recipeImgUrl: recipe.recipeImgUrl || "",
-          });
+          setInitialData(recipe);
         } catch (error) {
           console.error("Failed to fetch recipe:", error);
         }
@@ -62,12 +52,8 @@ const UpdateRecipe: React.FC = () => {
         recipeId: parsedRecipeId,
         recipeName: updatedData.recipeName,
         recipeCategory: updatedData.recipeCategory,
-        recipeIngredients: updatedData.recipeIngredients
-          .split(",")
-          .map((ingredient) => ingredient.trim()),
-        recipeInstructions: updatedData.recipeInstructions
-          .split(".")
-          .map((instruction) => instruction.trim()),
+        recipeIngredients: updatedData.recipeIngredients,
+        recipeInstructions: updatedData.recipeInstructions,
         recipeImgUrl: updatedData.recipeImgUrl,
       };
 
