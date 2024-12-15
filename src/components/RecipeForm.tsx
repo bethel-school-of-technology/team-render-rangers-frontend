@@ -24,7 +24,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ initialData, onSubmit }) => {
 
   useEffect(() => {
     if (initialData) {
-      setFormData(initialData); // Populate form with initial data if provided
+      setFormData(initialData); 
     }
   }, [initialData]);
 

@@ -41,22 +41,6 @@ const Feed = () => {
 
       {!isLoading && !error && (
         <>
-
-          {/* <div className="post-section">
-            <h2>Your Post</h2>
-            {recipes.length > 0 ? (
-              <div className="recipe-card">
-                <img src={recipes[0].recipeImgUrl} alt={recipes[0].recipeName} />
-                <h3>{recipes[0].recipeName}</h3>
-                <p>{recipes[0].recipeCategory}</p>
-                <button className="view-recipe-button"><a href="/recipe/:id">View Recipe</a></button>
-              </div>
-            ) : (
-              <p>No recipes to display yet!</p>
-            )}
-          </div> */}
-
-
           <div className="post-section">
             <h2>All recipes</h2>
             {recipes.length > 1 ? (

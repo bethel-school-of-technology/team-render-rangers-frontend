@@ -4,14 +4,14 @@ import { getRecipe } from '../services/recipeService';
 import { Recipe } from '../models/recipe';
 
 const RecipeDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // get recipe ID from URL
+  const { id } = useParams<{ id: string }>(); 
   const [recipe, setRecipe] = useState<Recipe | null>(null);
 
   useEffect(() => {
     if (id) {
       getRecipe(Number(id))
         .then(setRecipe)
-        .catch(() => setRecipe(null)); // Handle errors 
+        .catch(() => setRecipe(null)); 
     }
   }, [id]);
 

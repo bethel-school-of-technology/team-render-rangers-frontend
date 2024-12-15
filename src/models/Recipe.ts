@@ -1,5 +1,5 @@
 export class Recipe {
-  recipeId?: number; // optional for creating new recipes
+  recipeId?: number; 
   recipeName: string;
   recipeCategory: string;
   recipeIngredients: string[];

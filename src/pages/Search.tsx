@@ -16,7 +16,7 @@ const Search = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const results = await searchRecipes(query); // Fetch search results
+      const results = await searchRecipes(query); 
       setRecipes(results);
     } catch (error) {
       console.error('Error fetching search results:', error);

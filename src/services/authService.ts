@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5117/api'; // base URL for your API
+const API_BASE_URL = 'http://localhost:5117/api';
 
-// user sign in
 export const loginUser = async (credentials: { email: string; password: string }) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/Auth/login?email=${credentials.email}&password=${credentials.password}`);
@@ -13,7 +12,6 @@ export const loginUser = async (credentials: { email: string; password: string }
   }
 };
 
-// user sign up
 export const registerUser = async (userData: { name: string; email: string; password: string }) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/Auth/register`, userData);

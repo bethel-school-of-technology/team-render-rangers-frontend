@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.tsx';
-import { getSavedRecipes, deleteRecipe } from '../services/recipeService.ts'; // Include deleteRecipe service
+import { getSavedRecipes, deleteRecipe } from '../services/recipeService.ts'; 
 import NavBar from '../components/NavBar.tsx';
 import './Profile.css';
 import { Recipe } from '../models/recipe.ts';
@@ -22,10 +22,8 @@ const Profile = () => {
     };
 
     fetchSavedRecipes();
-  }, [navigate]); // Dependency triggers refetch
+  }, [navigate]); 
 
-
-  // Handle delete recipe
   const handleDelete = async (recipeId: number) => {
     try {
       await deleteRecipe(recipeId);
@@ -40,7 +38,7 @@ const Profile = () => {
       <NavBar />
       <div className="profile-header">
         <img
-          src={user.avatar || 'https://via.placeholder.com/150'}
+          src={user.avatar || 'https://media.istockphoto.com/id/1345002600/vector/gender-neutral-profile-avatar-front-view-of-an-anonymous-person-face.jpg?s=612x612&w=0&k=20&c=082qj-lppYxoHZkDETLvwLSwt1WaTiRgRaaQDcsdbfg='}
           alt="User avatar"
           className="profile-avatar"
         />
